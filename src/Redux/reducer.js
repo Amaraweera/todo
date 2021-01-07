@@ -18,7 +18,7 @@ const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, action) => {
     var data = action.payload;
-    console.log(action);
+
     switch (action.type) {
         case types.ADD_TASK:
             return {
@@ -28,6 +28,7 @@ const reducer = (state = INITIAL_STATE, action) => {
                     done: false
                 }],
             };
+
         case types.TASK_DONE:
             state.tasks.filter((task) => {
                 if (task.id === data.id)
@@ -39,6 +40,7 @@ const reducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state, tasks: [...state.tasks],
             };
+            
         case types.TASK_DELETE:
             state.tasks.filter((task) => {
                 return task.id !== data.id;
